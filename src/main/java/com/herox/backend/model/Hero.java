@@ -1,12 +1,12 @@
 package com.herox.backend.model;
 
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Set;
 
 public class Hero {
 
     private String name;
-    private LinkedList<HeroSpec> powers;
+    private Set<HeroSpec> powers;
 
     public Hero(String name){
         this.name = name;
@@ -20,13 +20,14 @@ public class Hero {
         this.name = name;
     }
 
-    public boolean checkPowers(List<HeroSpec> heroSpecs){
-        boolean checks = true;
-/*
-        heroSpecs.stream().forEach(spec -> if(powers.contains(spec)) {
+    public boolean checkPowers(Set<HeroSpec> heroSpecs){
 
-        });
-*/
-        return checks;
+        return powers.containsAll(heroSpecs);
     }
+
+    public void setPowers(Set<HeroSpec> powers) {
+        this.powers = powers;
+    }
+
+
 }
