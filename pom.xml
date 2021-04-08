@@ -2,11 +2,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>co.guilhermeromao.tests.simplerest</groupId>
-    <artifactId>simple-rest-1</artifactId>
+    <groupId>com.backend.com</groupId>
+    <artifactId>herox</artifactId>
     <version>0.0.1</version>
     <packaging>war</packaging>
-    <name>Simple REST war</name>
+    <name>Herox Backend war</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -66,12 +66,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>4.3.11.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf-spring4</artifactId>
-            <version>3.0.8.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -171,7 +165,7 @@
                 <configuration>
                     <url>http://localhost:8080/manager/text</url>
                     <server>tomcat</server>
-                    <path>/simplerest</path>
+                    <path>/herox</path>
                 </configuration>
             </plugin>
 
