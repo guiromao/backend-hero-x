@@ -1,6 +1,6 @@
 package com.herox.backend.model;
 
-public class HeroManager {
+public class HeroManager extends Model{
 
     private String name;
     private Hero hero;
