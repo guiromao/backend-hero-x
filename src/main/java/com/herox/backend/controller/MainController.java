@@ -1,9 +1,7 @@
 package com.herox.backend.controller;
 
-import com.herox.backend.model.Band;
 import com.herox.backend.model.Hero;
 import com.herox.backend.model.HeroManager;
-import org.springframework.http.HttpRange;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class MainController {
-
-    private List<Band> bands = Arrays.asList(new Band("Red Hot Chilli Peppers", "Rock, Pop", 1983, "USA"),
-            new Band("Franz Ferdinand", "Rock / Indie", 2002, "Scotland"),
-            new Band("Daft Punk", "Electro / Disco", 1993, "France"));
 
     private List<HeroManager> managersList = Arrays.asList(
             new HeroManager("Professor", new Hero("Powerpuff Girls"), "professor123",
@@ -32,19 +26,25 @@ public class MainController {
         return new ResponseEntity(managersList, HttpStatus.OK);
     }
 
-    @ResponseBody
-    @RequestMapping(method = RequestMethod.POST, value = {"", "/"})
-    public ResponseEntity addManager(@RequestBody HeroManager manager){
-        managersList.add(manager);
+    @RequestMapping(method = RequestMethod.GET, value = "/login")
+    public ResponseEntity<HeroManager> login(@RequestParam String login,
+                                             @RequestParam String password){
+        HeroManager manager = findManager(login);
 
-        return new ResponseEntity(/*managersList.get(managersList.size() - 1), */HttpStatus.CREATED);
+        if(manager.getPassword().equals(password)){
+            return new ResponseEntity<>(manager, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/{id}/edit/")
-    public ResponseEntity updateManager(@RequestBody HeroManager manager, @PathVariable Integer id){
-        managersList.set((id - 1), manager);
-
-        return new ResponseEntity(HttpStatus.OK);
+    private HeroManager findManager(String login){
+        for(HeroManager manager: managersList){
+            if(login.equals(manager.getLogin())){
+                return manager;
+            }
+        }
+        return null;
     }
 
 
