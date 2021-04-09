@@ -15,6 +15,7 @@ public class Mission extends Model {
     private MissionStatus missionStatus;
     private Integer heroId;
     private List<HeroSpec> neededSpecs;
+    private String imgUrl;
 
     public Mission(){
 
@@ -92,5 +93,13 @@ public class Mission extends Model {
 
     public void setHeroId(Integer heroId) {
         this.heroId = heroId;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

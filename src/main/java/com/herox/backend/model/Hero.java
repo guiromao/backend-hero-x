@@ -3,7 +3,7 @@ package com.herox.backend.model;
 import java.util.LinkedList;
 import java.util.Set;
 
-public class Hero {
+public class Hero extends Model{
 
     private String name;
     private Set<HeroSpec> powers;
