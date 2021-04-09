@@ -30,10 +30,6 @@ public class MissionService {
         missions.add(mission);
     }
 
-    public void editMission(int index, Mission mission){
-        missions.set(index - 1, mission);
-    }
-
     public void editMission(int index){
         Mission mission = missions.get(index - 1);
         updateStatus(mission);
@@ -44,25 +40,12 @@ public class MissionService {
     }
 
     private void updateStatus(Mission mission){
-        MissionStatus [] totalStatus = MissionStatus.values();
-        MissionStatus status = mission.getMissionStatus();
+        if(mission.getHeroId() != null){
+            mission.setMissionStatus(MissionStatus.DONE);
+            int balance = managerService.getManager(mission.getHeroId()).getBalance();
+            balance += mission.getCompensation();
 
-        if(status != MissionStatus.DONE){
-            int index = MissionStatus.getIndex(status);
-
-            if(totalStatus[index] == MissionStatus.IN_PROGRESS){
-                int earnings = mission.getCompensation();
-                if(mission.getHeroId() != null){
-                    int currentBalance = managerService.getManager(mission.getHeroId()).getBalance();
-                    currentBalance += earnings;
-                    managerService.getManager(mission.getHeroId()).setBalance(currentBalance);
-                }
-            }
-
-            if(index < totalStatus.length - 1){
-                status = totalStatus[index + 1];
-                mission.setMissionStatus(status);
-            }
+            managerService.getManager(mission.getHeroId()).setBalance(balance);
         }
     }
 
@@ -94,9 +77,15 @@ public class MissionService {
         return missionsOfHero;
     }
 
-    public void claimMission(Integer hId, Integer mId) {
+    public boolean claimMission(Integer hId, Integer mId) {
         Mission mission = missions.get(mId - 1);
 
-        mission.setHeroId(hId);
+        if(mission.getId() != null && mission.getHeroId() == null) {
+            mission.setHeroId(hId);
+            mission.setMissionStatus(MissionStatus.IN_PROGRESS);
+            return true;
+        }
+        return false;
     }
+
 }

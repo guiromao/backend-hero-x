@@ -12,10 +12,11 @@ public class Mission extends Model {
     private int compensation;
     private int days;
     private String location;
-    private MissionStatus missionStatus;
+    private MissionStatus missionStatus = MissionStatus.READY;git
     private Integer heroId;
     private List<HeroSpec> neededSpecs;
     private String imgUrl;
+    private String neededPowers;
 
     public Mission(){
 
@@ -59,6 +60,10 @@ public class Mission extends Model {
         return heroId;
     }
 
+    public String getNeededPowers() {
+        return neededPowers;
+    }
+
     public MissionStatus getMissionStatus() {
         return missionStatus;
     }
@@ -89,6 +94,12 @@ public class Mission extends Model {
 
     public void setNeededSpecs(List<HeroSpec> neededSpecs) {
         this.neededSpecs = neededSpecs;
+
+        neededPowers = "";
+
+        for(HeroSpec spec: neededSpecs){
+            neededPowers += spec.getString() + ",";
+        }
     }
 
     public void setHeroId(Integer heroId) {

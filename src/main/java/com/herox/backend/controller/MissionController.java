@@ -44,11 +44,15 @@ public class MissionController {
         return new ResponseEntity<>(missionDto, HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path="/{hId}/claim/{mId}")
+    @RequestMapping(method = RequestMethod.PUT, path="/{hId}/claim/{mId}")
     public ResponseEntity claimMission(@PathVariable Integer hId, @PathVariable Integer mId){
-        missionService.claimMission(hId, mId);
 
-        return new ResponseEntity(HttpStatus.OK);
+        if(missionService.claimMission(hId, mId)){
+
+            return new ResponseEntity(HttpStatus.OK);
+        }
+
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
@@ -56,7 +60,7 @@ public class MissionController {
         return new ResponseEntity(missionService.getMission(id), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value="/{mId}")
+    /*@RequestMapping(method = RequestMethod.PUT, value="/{mId}")
     public ResponseEntity addMission(@PathVariable Integer mId,
                                                  @RequestBody MissionDto missionDto){
         Mission mission = missionDtoToMission.convert(missionDto);
@@ -64,7 +68,7 @@ public class MissionController {
         missionService.editMission(mId, mission);
 
         return new ResponseEntity(HttpStatus.OK);
-    }
+    }*/
 
     @RequestMapping(method = RequestMethod.PUT, value="/{id}")
     public ResponseEntity editMission(@PathVariable Integer id){

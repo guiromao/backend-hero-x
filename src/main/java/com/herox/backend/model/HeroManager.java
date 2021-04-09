@@ -1,11 +1,16 @@
 package com.herox.backend.model;
 
+import com.google.common.hash.Hashing;
+
+import java.nio.charset.StandardCharsets;
+
 public class HeroManager extends Model{
 
     private String name;
     private Hero hero;
     private String login;
     private String password;
+    private String hashPass;
     private int balance = 0;
     private String imageUrl;
     private String catchPhrase;
@@ -35,6 +40,10 @@ public class HeroManager extends Model{
 
     public String getPassword() {
         return password;
+    }
+
+    public String getHashPass() {
+        return hashPass;
     }
 
     public int getBalance() {
@@ -71,6 +80,9 @@ public class HeroManager extends Model{
 
     public void setPassword(String password) {
         this.password = password;
+        hashPass = Hashing.sha256()
+                .hashString(this.password, StandardCharsets.UTF_8)
+                .toString();
     }
 
     public void setBalance(int balance) {

@@ -1,6 +1,7 @@
 package com.herox.backend.controller;
 
 import com.herox.backend.model.HeroManager;
+import com.herox.backend.model.IntSecurity;
 import com.herox.backend.model.missions.Mission;
 import com.herox.backend.model.missions.MissionStatus;
 import com.herox.backend.services.ManagerService;
@@ -37,28 +38,35 @@ public class MainController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/login")
-    public ResponseEntity<Integer> login(@RequestParam String login,
+    public ResponseEntity<IntSecurity> login(@RequestParam String login,
                                              @RequestParam String password){
 
         HeroManager manager = managerServices.login(login, password);
 
         if(manager != null){
-            return new ResponseEntity<>(managerServices.getHeroIndex(manager), HttpStatus.OK);
+            return new ResponseEntity<>(new IntSecurity(manager.getId(), manager.getHashPass()), HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path="/{id}/missions")
     public ResponseEntity<List<Mission>> getMissionsByHero(@PathVariable Integer id){
+
         List<Mission> missions = missionService.getMissionsByHero(id);
 
         return new ResponseEntity<>(missions, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public ResponseEntity<HeroManager> getHeroManager(@PathVariable Integer id){
+    public ResponseEntity<HeroManager> getHeroManager(@PathVariable Integer id,
+                                                      @RequestParam String hash){
 
-        return new ResponseEntity<>(managerServices.getManager(id), HttpStatus.OK);
+        if(hash.equals(managerServices.getManager(id).getHashPass())){
+            return new ResponseEntity<>(managerServices.getManager(id), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
