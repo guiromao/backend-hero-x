@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com\herox\backend\controller\MissionController.class
 com\herox\backend\dto\MissionDtoToMission.class
 com\herox\backend\services\ManagerService.class
@@ -12,3 +13,5 @@ com\herox\backend\SpringBootstrap.class
 com\herox\backend\services\MissionService.class
 com\herox\backend\model\Hero.class
 com\herox\backend\model\missions\Mission.class
+=======
+>>>>>>> enums

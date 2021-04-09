@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\controller\AuxController.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\model\HeroManager.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\dto\MissionDto.java
@@ -12,3 +13,10 @@ C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\c
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\controller\MainController.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\model\Model.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\services\ManagerService.java
+=======
+/home/sergio/Documents/Webdev/academiacodigo/hackathon/back-project-hackaton/src/main/java/com/herox/backend/SpringBootstrap.java
+/home/sergio/Documents/Webdev/academiacodigo/hackathon/back-project-hackaton/src/main/java/com/herox/backend/model/Mission.java
+/home/sergio/Documents/Webdev/academiacodigo/hackathon/back-project-hackaton/src/main/java/com/herox/backend/model/HeroManager.java
+/home/sergio/Documents/Webdev/academiacodigo/hackathon/back-project-hackaton/src/main/java/com/herox/backend/model/Hero.java
+/home/sergio/Documents/Webdev/academiacodigo/hackathon/back-project-hackaton/src/main/java/com/herox/backend/controller/MainController.java
+>>>>>>> enums
