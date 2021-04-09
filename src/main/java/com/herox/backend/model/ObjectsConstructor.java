@@ -17,6 +17,7 @@ public class ObjectsConstructor {
         manager1.setPassword("sugarspiceandeverythingnice");
         manager1.setImageUrl("https://powerpuff-girls.s3-ap-southeast-1.amazonaws.com/asia/uploads/galleries/character" +
                 "/character1/[…]/3ff53febda16b761648a248f307f663066873051.jpg");
+        manager1.setCatchPhrase("Let us advance science to create a better world for all.");
 
         managers.add(manager1);
 
@@ -33,6 +34,11 @@ public class ObjectsConstructor {
         mission1.setMissionStatus(MissionStatus.READY);
 
         missions.add(mission1);
+
+        Mission mission2 = new Mission();
+        mission2.setTitle("Tsunami");
+
+        missions.add(mission2);
 
         return missions;
     }

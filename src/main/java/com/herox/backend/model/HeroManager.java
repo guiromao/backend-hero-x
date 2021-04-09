@@ -8,6 +8,7 @@ public class HeroManager extends Model{
     private String password;
     private int balance = 0;
     private String imageUrl;
+    private String catchPhrase;
 
     public HeroManager(){
 
@@ -40,12 +41,20 @@ public class HeroManager extends Model{
         return balance;
     }
 
+    public String getCatchPhrase() {
+        return catchPhrase;
+    }
+
     public String getImageUrl() {
         return imageUrl;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setCatchPhrase(String catchPhrase) {
+        this.catchPhrase = catchPhrase;
     }
 
     public void setImageUrl(String imageUrl) {
