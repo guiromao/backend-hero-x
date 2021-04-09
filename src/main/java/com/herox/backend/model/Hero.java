@@ -7,10 +7,36 @@ public class Hero {
 
     private String name;
     private Set<HeroSpec> powers;
+    private String imgUrl;
+    private String powersString;
+
 
     public Hero(String name, Set powers){
         this.name = name;
         this.powers = powers;
+    }
+
+    public String getPowers(){
+        String powersString = "";
+        int verified = 0;
+
+        for(HeroSpec power : powers){
+            powersString = powersString.concat(power.getString());
+            verified ++;
+            if (verified != powers.size()) {
+                powersString += ", ";
+            }
+        }
+
+        return powersString;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 
     public String getName() {
@@ -28,6 +54,10 @@ public class Hero {
 
     public void setPowers(Set<HeroSpec> powers) {
         this.powers = powers;
+    }
+
+    public void setPowersString() {
+        this.powersString = getPowers();
     }
 
 

@@ -16,6 +16,9 @@ public class ObjectsConstructor {
         powers.add(HeroSpec.HYPER_SPEED);
 
         Hero powerPuff = new Hero("Powerpuff Girls", powers);
+        powerPuff.setImgUrl("images/powerpuff.png");
+
+        //powerPuff.setPowersString();
 
         List<HeroManager> managers = new ArrayList<>();
 
@@ -33,6 +36,7 @@ public class ObjectsConstructor {
         skillsBatman.add(HeroSpec.SUPER_STRENGTH);
 
         Hero batman = new Hero("Batman", skillsBatman);
+        batman.setImgUrl("images/batman.png");
 
         HeroManager alfred = new HeroManager();
         alfred.setHero(batman);
