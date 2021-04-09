@@ -6,13 +6,18 @@ public class HeroManager extends Model{
     private Hero hero;
     private String login;
     private String password;
+    private int balance = 0;
 
-    public HeroManager(String name, Hero hero, String login, String password){
+    public HeroManager(){
+
+    }
+
+    /*public HeroManager(String name, Hero hero, String login, String password){
         this.name = name;
         this.hero = hero;
         this.login = login;
         this.password = password;
-    }
+    }*/
 
     public java.lang.String getName() {
         return name;
@@ -30,6 +35,10 @@ public class HeroManager extends Model{
         return password;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -44,5 +53,9 @@ public class HeroManager extends Model{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 }

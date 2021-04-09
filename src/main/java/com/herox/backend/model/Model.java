@@ -9,4 +9,8 @@ public abstract class Model {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 }

@@ -1,10 +1,14 @@
 com\herox\backend\controller\MissionController.class
 com\herox\backend\dto\MissionDtoToMission.class
-com\herox\backend\dto\MissionDto.class
-com\herox\backend\SpringBootstrap.class
+com\herox\backend\services\ManagerService.class
 com\herox\backend\model\HeroManager.class
-com\herox\backend\model\Hero.class
+com\herox\backend\model\ObjectsConstructor.class
 com\herox\backend\controller\MainController.class
 com\herox\backend\model\missions\MissionStatus.class
 com\herox\backend\model\Model.class
+com\herox\backend\controller\AuxController.class
+com\herox\backend\dto\MissionDto.class
+com\herox\backend\SpringBootstrap.class
+com\herox\backend\services\MissionService.class
+com\herox\backend\model\Hero.class
 com\herox\backend\model\missions\Mission.class
