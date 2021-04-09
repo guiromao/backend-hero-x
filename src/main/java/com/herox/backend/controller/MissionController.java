@@ -44,6 +44,13 @@ public class MissionController {
         return new ResponseEntity<>(missionDto, HttpStatus.CREATED);
     }
 
+    @RequestMapping(method = RequestMethod.POST, path="/{hId}/claim/{mId}")
+    public ResponseEntity claimMission(@PathVariable Integer hId, @PathVariable Integer mId){
+        missionService.claimMission(hId, mId);
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
     public ResponseEntity<Mission> getMission(@PathVariable Integer id){
         return new ResponseEntity(missionService.getMission(id), HttpStatus.OK);

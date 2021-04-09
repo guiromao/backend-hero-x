@@ -1,5 +1,6 @@
 package com.herox.backend.services;
 
+import com.herox.backend.model.HeroManager;
 import com.herox.backend.model.ObjectsConstructor;
 import com.herox.backend.model.missions.Mission;
 import com.herox.backend.model.missions.MissionStatus;
@@ -91,5 +92,11 @@ public class MissionService {
             }
         }
         return missionsOfHero;
+    }
+
+    public void claimMission(Integer hId, Integer mId) {
+        Mission mission = missions.get(mId - 1);
+
+        mission.setHeroId(hId);
     }
 }

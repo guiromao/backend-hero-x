@@ -7,6 +7,7 @@ com\herox\backend\controller\MainController.class
 com\herox\backend\model\missions\MissionStatus.class
 com\herox\backend\model\Model.class
 com\herox\backend\controller\AuxController.class
+com\herox\backend\model\HeroSpec.class
 com\herox\backend\dto\MissionDto.class
 com\herox\backend\SpringBootstrap.class
 com\herox\backend\services\MissionService.class

@@ -1,6 +1,9 @@
 package com.herox.backend.model.missions;
 
+import com.herox.backend.model.HeroSpec;
 import com.herox.backend.model.Model;
+
+import java.util.List;
 
 public class Mission extends Model {
 
@@ -11,6 +14,7 @@ public class Mission extends Model {
     private String location;
     private MissionStatus missionStatus;
     private Integer heroId;
+    private List<HeroSpec> neededSpecs;
 
     public Mission(){
 
@@ -40,6 +44,10 @@ public class Mission extends Model {
 
     public int getDays() {
         return days;
+    }
+
+    public List<HeroSpec> getNeededSpecs() {
+        return neededSpecs;
     }
 
     public String getLocation() {
@@ -76,6 +84,10 @@ public class Mission extends Model {
 
     public void setCompensation(int compensation) {
         this.compensation = compensation;
+    }
+
+    public void setNeededSpecs(List<HeroSpec> neededSpecs) {
+        this.neededSpecs = neededSpecs;
     }
 
     public void setHeroId(Integer heroId) {
