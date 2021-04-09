@@ -1,10 +1,14 @@
+C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\controller\AuxController.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\model\HeroManager.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\dto\MissionDto.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\model\missions\Mission.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\dto\MissionDtoToMission.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\model\missions\MissionStatus.java
+C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\model\ObjectsConstructor.java
+C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\services\MissionService.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\SpringBootstrap.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\controller\MissionController.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\model\Hero.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\controller\MainController.java
 C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\model\Model.java
+C:\Users\DreamMaker\Academia de Código\Projects\SimpleRESTServer\src\main\java\com\herox\backend\services\ManagerService.java

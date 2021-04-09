@@ -15,6 +15,8 @@ public class ObjectsConstructor {
         manager1.setName("Professor");
         manager1.setLogin("professor123");
         manager1.setPassword("sugarspiceandeverythingnice");
+        manager1.setImageUrl("https://powerpuff-girls.s3-ap-southeast-1.amazonaws.com/asia/uploads/galleries/character" +
+                "/character1/[…]/3ff53febda16b761648a248f307f663066873051.jpg");
 
         managers.add(manager1);
 

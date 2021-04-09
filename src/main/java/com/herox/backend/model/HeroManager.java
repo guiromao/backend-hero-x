@@ -7,6 +7,7 @@ public class HeroManager extends Model{
     private String login;
     private String password;
     private int balance = 0;
+    private String imageUrl;
 
     public HeroManager(){
 
@@ -39,8 +40,16 @@ public class HeroManager extends Model{
         return balance;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public void setHero(Hero hero) {
