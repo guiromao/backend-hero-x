@@ -2,8 +2,10 @@ package com.herox.backend.controller;
 
 import com.herox.backend.dto.MissionDto;
 import com.herox.backend.dto.MissionDtoToMission;
+import com.herox.backend.model.ObjectsConstructor;
 import com.herox.backend.model.missions.Mission;
 import com.herox.backend.model.missions.MissionStatus;
+import com.herox.backend.services.MissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,43 +16,62 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/missions")
+@RequestMapping(value="/api/missions")
 public class MissionController {
 
     @Autowired
     private MissionDtoToMission missionDtoToMission;
 
-    private List<String> strings = Arrays.asList("yeah", "viva", "baby");
+    private MissionService missionService;
 
-    private List<Mission> missions = Arrays.asList(
-            new Mission("Saving a cat from a really tall tree!", "This job is for a really strong and tall person",
-                    9001, 1, "Lisboa", MissionStatus.READY)
-    );
+    @Autowired
+    public void setMissionService(MissionService service){
+        missionService = service;
+    }
 
     @RequestMapping(method = RequestMethod.GET, value={"/", ""})
     public ResponseEntity<List<Mission>> getMissions(){
-        return new ResponseEntity<>(missions, HttpStatus.OK);
+        return new
+                ResponseEntity<>(missionService.getAvailableMissions(), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, value="/")
     public ResponseEntity<MissionDto> addMission(@RequestBody MissionDto missionDto){
         Mission mission = missionDtoToMission.convert(missionDto);
 
-        missions.add(mission);
+        missionService.addMission(mission);
 
         return new ResponseEntity<>(missionDto, HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value="/string")
-    public ResponseEntity<String> addString(@RequestParam String value){
-        strings.add(value);
-
-        return new ResponseEntity<>(value, HttpStatus.CREATED);
+    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
+    public ResponseEntity<Mission> getMission(@PathVariable Integer id){
+        return new ResponseEntity(missionService.getMission(id), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value="/string")
-    public ResponseEntity<List<String>> getStrings(){
-        return new ResponseEntity<>(strings, HttpStatus.OK);
+    @RequestMapping(method = RequestMethod.PUT, value="/{mId}")
+    public ResponseEntity addMission(@PathVariable Integer mId,
+                                                 @RequestBody MissionDto missionDto){
+        Mission mission = missionDtoToMission.convert(missionDto);
+
+        missionService.editMission(mId, mission);
+
+        return new ResponseEntity(HttpStatus.OK);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value="/{id}")
+    public ResponseEntity editMission(@PathVariable Integer id){
+        missionService.editMission(id);
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value="/{id}")
+    public ResponseEntity deleteMission(@PathVariable Integer id){
+        missionService.deleteMission(id);
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
 
 }

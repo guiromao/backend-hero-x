@@ -10,12 +10,13 @@ public class Mission extends Model {
     private int days;
     private String location;
     private MissionStatus missionStatus;
+    private Integer heroId;
 
     public Mission(){
 
     }
 
-    public Mission(String title, String desc, int comp, int days, String location,
+    /*public Mission(String title, String desc, int comp, int days, String location,
                    MissionStatus status){
         this.title = title;
         description = desc;
@@ -23,7 +24,7 @@ public class Mission extends Model {
         this.days = days;
         this.location = location;
         missionStatus = status;
-    }
+    }*/
 
     public String getTitle() {
         return title;
@@ -43,6 +44,10 @@ public class Mission extends Model {
 
     public String getLocation() {
         return location;
+    }
+
+    public Integer getHeroId() {
+        return heroId;
     }
 
     public MissionStatus getMissionStatus() {
@@ -73,4 +78,7 @@ public class Mission extends Model {
         this.compensation = compensation;
     }
 
+    public void setHeroId(Integer heroId) {
+        this.heroId = heroId;
+    }
 }
