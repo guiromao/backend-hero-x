@@ -12,7 +12,7 @@ public class Mission extends Model {
     private int compensation;
     private int days;
     private String location;
-    private MissionStatus missionStatus = MissionStatus.READY;git
+    private MissionStatus missionStatus = MissionStatus.READY;
     private Integer heroId;
     private List<HeroSpec> neededSpecs;
     private String imgUrl;
